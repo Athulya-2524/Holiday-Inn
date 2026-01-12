@@ -3,6 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../firebase";
 
 
 function Auth() {
@@ -10,6 +12,18 @@ function Auth() {
       const [password,setPassword] = useState("")
       const navigate = useNavigate();
 
+      
+const handleGoogleLogin = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    console.log(result.user);
+
+    localStorage.setItem("isLoggedIn", "true");
+    navigate("/");
+  } catch (error) {
+    console.error(error);
+  }
+};
 
       const handleSubmit = (e) =>{
               e.preventDefault()
@@ -52,7 +66,7 @@ function Auth() {
           </p>
 
         {/* Google Button */}
-        <button className="mt-6 w-full flex items-center justify-center gap-3
+        <button type="button" onClick={handleGoogleLogin} className="mt-6 w-full flex items-center justify-center gap-3
           rounded-lg border border-gray-700 py-2.5
           hover:bg-[#1c1f26] transition">
           <FcGoogle size={20} />

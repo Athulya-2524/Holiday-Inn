@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home';
 import Auth from './pages/Auth';
 import Sign from './pages/Sign';
+import Footer from './components/Footer';
 
 function App() {
   const isOwnerPath = useLocation().pathname.includes("owner");
@@ -17,6 +18,7 @@ function App() {
           <Route path='/register' element={<Sign/>}/>
           
         </Routes>
+        <Footer/>
       </div>
     </div>
   )
