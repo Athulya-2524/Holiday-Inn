@@ -4,51 +4,36 @@ import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 
+function Sign() {
+    const [name,setName] = useState("")
+    const [password,setPassword] = useState("")
+    const navigate = useNavigate();
 
-function Auth() {
-      const [name,setName] = useState("")
-      const [password,setPassword] = useState("")
-      const navigate = useNavigate();
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        axios.post('http://localhost:3001/register',{name,password})
+        .then((result)=>{
+            console.log(result)
+            navigate('/login')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
 
-
-      const handleSubmit = (e) =>{
-              e.preventDefault()
-              axios.post('http://localhost:3001/login', {name,password})
-              .then((result)=>{
-                  console.log(result)
-                  if(result.data === "Success") {
-                    navigate('/')
-                  }   
-              })
-              .catch((err)=>{
-                  console.log(err)
-              })
-
-              axios.post("http://localhost:3001/login", { name, password })
-              .then((result) => {
-              if (result.data === "Success") {
-              localStorage.setItem("isLoggedIn", "true");
-              localStorage.setItem("username", name);
-              navigate("/");
-              }
-              })
-              .catch((err) => console.log(err));
-
-          }
-
-
+ 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('/src/assets/mainHero.png')] bg-black px-4">
       {/* Card */}
       <div className="bg-black w-full max-w-md rounded-2xl from-[#15171c] to-[#0e0f13]
                       shadow-[0_0_10px_rgba(0,0,0,0.5)] p-8 text-white">
-         <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
         {/* Title */}
         <h2 className="text-2xl font-semibold text-center">
-           Sign in to my Application
+           Register Application
           </h2>
           <p className='text-sm text-gray-400 text-center mt-2'>
-            Welcome!Sign in to continue
+            Welcome!Register to continue
           </p>
 
         {/* Google Button */}
@@ -101,17 +86,18 @@ function Auth() {
       {/* form fields here */}
 
         <p className="mt-6 text-center text-sm text-gray-400">
-          Don't have an account?
-          <Link to="/register" className="text-blue-500 hover:underline">
-            Sign Up
+          Already have an account?
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Login
           </Link>
         </p>
     </div>
-     </form>
+      </form>
       </div>
+      
     </div>
   )
 }
 
-export default Auth
+export default Sign
 
