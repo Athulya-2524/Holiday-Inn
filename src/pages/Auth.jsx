@@ -2,7 +2,9 @@ import React from 'react'
 import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 
-function Auth({insideRegister}) {
+function Auth({insideRegister = (false)}) {
+
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('/src/assets/mainHero.png')] bg-black px-4">
       {/* Card */}
@@ -12,16 +14,16 @@ function Auth({insideRegister}) {
         {/* Title */}
         <h2 className="text-2xl font-semibold text-center">
           
-          {insideRegister? "Sign up to My Application":"Log in to My Application"}
-        </h2>
-        <p className="text-sm text-gray-400 text-center mt-2">
-          {insideRegister? "Welcome!Sign up to continue":"Welcome back! Please sign in to continue"}
-        </p>
+          {insideRegister? "Sign up to my Application":"Sign in to my Application"}
+          </h2>
+          <p className='text-sm text-gray-400 text-center mt-2'>
+            {insideRegister? "Welcome!Sign up to continue":"Welcome!Sign in to continue"}
+          </p>
 
         {/* Google Button */}
         <button className="mt-6 w-full flex items-center justify-center gap-3
-                           rounded-lg border border-gray-700 py-2.5
-                           hover:bg-[#1c1f26] transition">
+          rounded-lg border border-gray-700 py-2.5
+          hover:bg-[#1c1f26] transition">
           <FcGoogle size={20} />
           <span className="text-sm font-medium">Continue with Google</span>
         </button>
@@ -59,19 +61,29 @@ function Auth({insideRegister}) {
         </button>
 
         {/* Footer */}
-        <div>
-          {
-            insideRegister ?
-            <p className="mt-6 text-center text-sm text-gray-400">
-          Already have an account? <Link to={'/login'}>Log In</Link>
-        </p>
-        :
+          <div className="text-white">
+      <h1 className="text-2xl font-bold text-center mb-4">
+      </h1>
+
+      {/* form fields here */}
+
+      {insideRegister ? (
         <p className="mt-6 text-center text-sm text-gray-400">
-          Don't have an account?<Link to={'/register'}> Sign up </Link>
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Log In
+          </Link>
         </p>
-          }
-        
-        </div>
+      ) : (
+        <p className="mt-6 text-center text-sm text-gray-400">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-blue-500 hover:underline">
+            Sign Up
+          </Link>
+        </p>
+      )}
+    </div>
+
       </div>
     </div>
   )

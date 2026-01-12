@@ -11,13 +11,9 @@ function App() {
       {!isOwnerPath && <Navbar/>}
       <div className='min-h-[70vh]'>
         <Routes>
-          
           <Route path='/' element={<Home/>}/>
-          
-         
-         
-          <Route path='/login' element={<Auth/>}/>
-          <Route path='/register' element={<Auth inside/>}/>
+          <Route path='/login' element={<Auth insideRegister={false}/>}/>
+          <Route path='/register' element={<Auth insideRegister={true}/>}/>
           
         </Routes>
       </div>
