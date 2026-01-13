@@ -135,69 +135,66 @@ export const userDummyData = {
 }
 
 // Hotel Dummy Data
-export const hotelDummyData = {
-    "_id": "67f76393197ac559e4089b72",
-    "name": "Urbanza Suites",
-    "address": "Main Road  123 Street , 23 Colony",
-    "contact": "+0123456789",
-    "owner": userDummyData,
-    "city": "New York",
-    "createdAt": "2025-04-10T06:22:11.663Z",
-    "updatedAt": "2025-04-10T06:22:11.663Z",
-    "__v": 0
-}
+export const hotelDummyData = [
+  {
+    _id: "h1",
+    name: "Urbanza Suites",
+    address: "Main Road 123 Street, 23 Colony",
+    city: "New York",
+  },
+  {
+    _id: "h2",
+    name: "Skyline Grand",
+    address: "5th Avenue, Manhattan",
+    city: "New York",
+  },
+  {
+    _id: "h3",
+    name: "Ocean View Resort",
+    address: "Beach Road, Marina Bay",
+    city: "Singapore",
+  },
+  {
+    _id: "h4",
+    name: "Royal Palm Stay",
+    address: "Palm Jumeirah",
+    city: "Dubai",
+  },
+];
+
 
 // Rooms Dummy Data
 export const roomsDummyData = [
-    {
-        "_id": "67f7647c197ac559e4089b96",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 399,
-        "amenities": ["Room Service", "Mountain View", "Pool Access"],
-        "images": [roomImg1, roomImg2, roomImg3, roomImg4],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:26:04.013Z",
-        "updatedAt": "2025-04-10T06:26:04.013Z",
-        "__v": 0
-    },
-    {
-        "_id": "67f76452197ac559e4089b8e",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 299,
-        "amenities": ["Room Service", "Mountain View", "Pool Access"],
-        "images": [roomImg2, roomImg3, roomImg4, roomImg1],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:25:22.593Z",
-        "updatedAt": "2025-04-10T06:25:22.593Z",
-        "__v": 0
-    },
-    {
-        "_id": "67f76406197ac559e4089b82",
-        "hotel": hotelDummyData,
-        "roomType": "Double Bed",
-        "pricePerNight": 249,
-        "amenities": ["Free WiFi", "Free Breakfast", "Room Service"],
-        "images": [roomImg3, roomImg4, roomImg1, roomImg2],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:24:06.285Z",
-        "updatedAt": "2025-04-10T06:24:06.285Z",
-        "__v": 0
-    },
-    {
-        "_id": "67f763d8197ac559e4089b7a",
-        "hotel": hotelDummyData,
-        "roomType": "Single Bed",
-        "pricePerNight": 199,
-        "amenities": ["Free WiFi", "Room Service", "Pool Access"],
-        "images": [roomImg4, roomImg1, roomImg2, roomImg3],
-        "isAvailable": true,
-        "createdAt": "2025-04-10T06:23:20.252Z",
-        "updatedAt": "2025-04-10T06:23:20.252Z",
-        "__v": 0
-    }
-]
+  {
+    _id: "r1",
+    hotel: hotelDummyData[0],
+    roomType: "Double Bed",
+    pricePerNight: 399,
+    images: [roomImg3],
+  },
+  {
+    _id: "r2",
+    hotel: hotelDummyData[1],
+    roomType: "Deluxe Room",
+    pricePerNight: 299,
+    images: [roomImg2],
+  },
+  {
+    _id: "r3",
+    hotel: hotelDummyData[2],
+    roomType: "Ocean Suite",
+    pricePerNight: 249,
+    images: [roomImg1],
+  },
+  {
+    _id: "r4",
+    hotel: hotelDummyData[3],
+    roomType: "Luxury King",
+    pricePerNight: 199,
+    images: [roomImg4],
+  },
+];
+
 
 
 

@@ -153,14 +153,14 @@ const Navbar = () => {
 
                 <Menu.Item>
                   {({ active }) => (
-                    <button
+                    <Link to={'/'} 
                       onClick={handleLogout}
                       className={`${
                         active && "bg-gray-100"
                       } w-full text-left px-4 py-2 text-sm text-red-500`}
                     >
                       Logout
-                    </button>
+                    </Link>
                   )}
                 </Menu.Item>
               </Menu.Items>

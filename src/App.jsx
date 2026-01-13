@@ -1,27 +1,35 @@
 import React from 'react'
-import Navbar from './components/Navbar'
 import { Route, Routes, useLocation } from 'react-router-dom'
-import Home from './pages/Home';
-import Auth from './pages/Auth';
-import Sign from './pages/Sign';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+
+import Home from './pages/Home'
+import Auth from './pages/Auth'
+import Sign from './pages/Sign'
 
 function App() {
-  const isOwnerPath = useLocation().pathname.includes("owner");
+  const location = useLocation();
+
+  // Pages where Navbar & Footer should be hidden
+  const hideLayoutRoutes = ['/login', '/register'];
+
+  const hideLayout = hideLayoutRoutes.includes(location.pathname);
+
   return (
     <div>
-      {!isOwnerPath && <Navbar/>}
+      {!hideLayout && <Navbar />}
+
       <div className='min-h-[70vh]'>
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Auth/>}/>
-          <Route path='/register' element={<Sign/>}/>
-          
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Auth />} />
+          <Route path='/register' element={<Sign />} />
         </Routes>
-        <Footer/>
       </div>
+
+      {!hideLayout && <Footer />}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
